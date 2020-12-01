@@ -54,7 +54,7 @@ jobs:
           at: /tmp
       - run:
           name: Deploy app
-          command: npx netlify-cli deploy --prod --dir /tmp/server-doc --message "site deployed from circle ci"  --site 0c38d3cd-d2bf-40b9-a85d-aa4315dca27a
+          command: npx netlify-cli deploy --prod --dir /tmp/server-doc --message "site deployed from circle ci"  --site $NETLIFY_APP
   back-test-unit:
     docker:
       - image: circleci/node:dubnium-browsers
@@ -101,7 +101,7 @@ jobs:
       - checkout
       - run:
           name: Heroku Deploy
-          command: git push https://heroku:21ddec44-0fea-4b71-a6c0-5e902b2a803b@git.heroku.com/evening-cove-68662.git HEAD:main
+          command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git HEAD:main
       - run:
           name: Smoke Test
           command: ./test_hiroku.sh
