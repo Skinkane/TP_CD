@@ -104,7 +104,7 @@ jobs:
           command: git push https://heroku:21ddec44-0fea-4b71-a6c0-5e902b2a803b@git.heroku.com/evening-cove-68662.git HEAD:main
       - run:
           name: Smoke Test
-          command: ./hiroku_test.sh
+          command: ./test_hiroku.sh
 
 workflows:
   version: 2
